@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Events io.js v1.0.4 Manual &amp; Documentation</title>
+  <title>Events io.js v1.1.0 Manual &amp; Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
@@ -61,7 +61,7 @@
 
     <div id="column1" data-id="events" class="interior">
       <header>
-        <h1>io.js v1.0.4 Documentation</h1>
+        <h1>io.js v1.1.0 Documentation</h1>
         <div id="gtoc">
           <p>
             <a href="index.html" name="toc">Index</a> |
@@ -249,8 +249,11 @@ console.log(util.inspect(server.listeners(&#39;connection&#39;))); // [ [Functio
 <li><code>event</code> <span class="type">String</span> The event name</li>
 <li><code>listener</code> <span class="type">Function</span> The event handler function</li>
 </div></ul>
-<p>This event is emitted any time a listener is added. When this event is triggered,
-the listener may not yet have been added to the array of listeners for the <code>event</code>.
+<p>This event is emitted <em>before</em> a listener is added. When this event is
+triggered, the listener has not been added to the array of listeners for the
+<code>event</code>. Any listeners added to the event <code>name</code> in the newListener event
+callback will be added <em>before</em> the listener that is in the process of being
+added.
 
 
 </p>
@@ -259,8 +262,9 @@ the listener may not yet have been added to the array of listeners for the <code
 <li><code>event</code> <span class="type">String</span> The event name</li>
 <li><code>listener</code> <span class="type">Function</span> The event handler function</li>
 </div></ul>
-<p>This event is emitted any time someone removes a listener.  When this event is triggered,
-the listener may not yet have been removed from the array of listeners for the <code>event</code>.
+<p>This event is emitted <em>after</em> a listener is removed.  When this event is
+triggered, the listener has been removed from the array of listeners for the
+<code>event</code>.
 </p>
 
       </div>

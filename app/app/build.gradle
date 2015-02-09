@@ -7,8 +7,8 @@ android {
         applicationId 'com.mc.ioad'
         minSdkVersion 9
         targetSdkVersion 21
-        versionCode 17
-        versionName '1.0.4'
+        versionCode 18
+        versionName '1.1.0'
     }
     signingConfigs {
         release {
